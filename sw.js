@@ -16,7 +16,7 @@ if ('serviceWorker' in navigator) {
 const CACHE_NAME = 'my-cache'
 
 // List of files to cache
-const urlsToCache = ['/', '/index.html', '/style.css', '/script.js']
+const urlsToCache = ['./', './index.html', './style.css', './script.js']
 
 // Install event: Cache resources
 self.addEventListener('install', event => {
