@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'cartograph cf', sans-serif;
+    background: linear-gradient(to bottom left, #d2fff2 0%, #9ffccd 100%) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    max-width: 90%;
+    margin: 6rem auto;
+    padding: 2rem;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.container__heading {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.input-container__input {
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: #555;
+    border: none;
+    outline: none;
+    width: 30rem;
+    background: transparent;
+}
+
+.input-container__input-placeholder {
+    position: absolute;
+    color: rgba(255, 99, 71, 0.8);
+    font-size: 1.6rem;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s;
+}
+
+.input-container__input:focus ~ .input-container__input-placeholder {
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+
+.input-container__input-bar {
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    background-color: tomato;
+    bottom: 0px;
+    transition: all 0.3s;
+}
+
+.input-container__input:focus ~ .input-container__input-bar {
+    width: 300px;
+}
+
+.list-item__container {
+    display: grid;
+    grid-template-columns: 6fr 1fr 1fr;
+    gap: 1rem;
+    color: #555;
+    align-items: center;
+    margin: 2rem 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1.4rem;
+}
+
+
+.btn {
+    padding: .7rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    border-radius: .5rem;
+    background: transparent;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-out;
+}
+
+
