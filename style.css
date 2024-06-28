@@ -110,4 +110,39 @@ body {
     transition: all 0.3s ease-out;
 }
 
+.slide {
+    animation: slideRight .5s ease-in forwards;
+    position: relative;
+}
 
+@keyframes slideRight {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(-50px);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+}
+
+.vanish {
+    animation: vanish .5s ease-in forwards;
+}
+
+@keyframes vanish {
+    0% {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+}

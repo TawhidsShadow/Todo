@@ -3,12 +3,11 @@ const input = document.querySelector('.input-container__input')
 let id = 0
 let tasks = []
 
-function updateId () {
+function updateId() {
     if (tasks.length === 0) return
-    existingId = tasks.map(task => task.id) 
+    existingId = tasks.map(task => task.id)
     id = Math.max(...existingId) + 1
 }
-
 
 window.addEventListener('load', () => {
     tasks = JSON.parse(localStorage.getItem('tasks')) || []
@@ -25,7 +24,7 @@ input.addEventListener('keyup', e => {
 })
 
 function addTask() {
-    if (input.value.trim() === '' ) {
+    if (input.value.trim() === '') {
         input.value = ''
         alert('Please add a task')
         return
@@ -56,22 +55,36 @@ list.addEventListener('click', e => {
     if (e.target.classList.contains('delete-btn')) {
         deleteTask(e.target)
     } else if (e.target.classList.contains('edit-btn')) {
-        editTask(e.target)
+        editTask(e, e.target)
     }
 })
 
 function deleteTask(target) {
     const li = target.parentElement
-    li.parentElement.remove()
+    if (target.classList.contains('delete-btn')) {
+        li.parentElement.classList.add('slide')
+        setInterval(() => {
+            li.parentElement.remove()
+        }, 550)
+    } else if (target.classList.contains('edit-btn')) {
+        li.parentElement.classList.add('vanish')
+        setInterval(() => {
+            li.parentElement.remove()
+        }, 550)
+    }
     tasks = tasks.filter(task => task.id !== parseInt(li.id))
     localStorage.removeItem('tasks')
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
-function editTask(target) {
-    deleteTask(target)
+function editTask(e, target) {
     input.focus()
     input.value = target.parentElement.querySelector('p').textContent
+    input.addEventListener('keyup', e => {
+        if (e.keyCode === 13) {
+            deleteTask(target)
+        }
+    })
 }
 
 input.addEventListener('blur', e => {
