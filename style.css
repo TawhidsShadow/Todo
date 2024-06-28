@@ -14,7 +14,7 @@ body {
     font-family: 'cartograph cf', sans-serif;
     background: linear-gradient(to bottom left, #d2fff2 0%, #9ffccd 100%) no-repeat;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
